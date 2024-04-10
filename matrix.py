@@ -9,6 +9,9 @@ def userinput(rows, cols):
     return arr
 
 def multiply(arr1, arr2):
+    if len(arr1[0]) != len(arr2):
+        return "Matrix multiplication is not possible"
+    
     result = [[0 for i in range(len(arr1))] for j in range(len(arr2))]
     
     for i in range(len(arr1)):
@@ -84,10 +87,14 @@ def inverse(m):
             print(adj[i][j], end=" ")
         print()
 
-r = int(input("Enter Rows: "))
-c = int(input("Enter Columns: "))
-arr1 = userinput(r, c)
-arr2 = userinput(r, c)
+r1 = int(input("Enter Rows for Matrix1: "))
+c1= int(input("Enter Columns for Matrix1: "))
+arr1 = userinput(r1, c1)
+
+r2 = int(input("Enter Rows for Matrix2: "))
+c2= int(input("Enter Columns for Matrix2: "))
+arr2 = userinput(r2, c2)
+
 print(arr1)
 print(arr2)
 print(f"Product of two matrices: {multiply(arr1, arr2)}")
